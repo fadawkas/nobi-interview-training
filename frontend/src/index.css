@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+/* ============================================
+   Notion-Inspired Design System
+   ============================================ */
+
+:root {
+  /* Background colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F6F3;
+  --bg-tertiary: #FEFFFC;
+  --bg-highlight: #F1F1EF;
+
+  /* Text colors */
+  --text-primary: #37352F;
+  --text-secondary: #787774;
+  --text-tertiary: #B3B0A9;
+  --text-inverse: #FFFFFF;
+
+  /* Border / divider */
+  --border-light: #E8E8E6;
+  --border-medium: #DADAD8;
+  --border-dark: #C9C9C5;
+
+  /* Accent colors */
+  --accent-blue: #2383E2;
+  --accent-blue-hover: #1C6DC1;
+  --accent-orange: #F4B737;
+  --accent-red: #EB5647;
+  --accent-green: #2EAADC;
+  --accent-yellow-bg: #FDFFB6;
+  --accent-yellow-text: #714300;
+
+  /* Card styles */
+  --card-shadow: 0 0 0 1px rgba(0,0,0,0.03), 0 2px 2px rgba(0,0,0,0.02);
+  --card-shadow-hover: 0 0 0 1px rgba(0,0,0,0.05), 0 4px 6px rgba(0,0,0,0.04);
+
+  /* Spacing */
+  --page-padding: 80px;
+  --sidebar-width: 240px;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Notion-style scrollbar
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-medium);
+}
+
+/* ============================================
+   Notion-style heading hierarchy
+   ============================================ */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Notion-style block quote
+   ============================================ */
+blockquote {
+  padding-left: 1em;
+  border-left: 3px solid var(--text-primary);
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+/* ============================================
+   Notion-style inline code
+   ============================================ */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Notion-style callout box
+   ============================================ */
+.notion-callout {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  margin: 1rem 0;
+}
+
+.notion-callout--yellow {
+  background: #FFFAEB;
+}
+
+.notion-callout--blue {
+  background: #E9F5FE;
+}
+
+.notion-callout--red {
+  background: #FDE8E8;
+}
+
+.notion-callout--green {
+  background: #E6F7EF;
+}
+
+/* ============================================
+   Notion-style toggle container
+   ============================================ */
+details {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+}
+
+details summary {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Clean page background (remove blurs)
+   ============================================ */
+.page-bg {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.page-secondary-bg {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Card component
+   ============================================ */
+.notion-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: box-shadow 0.15s ease;
+}
+
+.notion-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* ============================================
+   Notion-style button variants
+   ============================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  background: var(--accent-blue);
+  color: var(--text-inverse);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-blue-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border-medium);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-highlight);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-highlight);
+}
+
+/* ============================================
+   Notion-style input fields
+   ============================================ */
+.notion-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.notion-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.notion-input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 1px var(--accent-blue);
+}
+
+.notion-input--borderless {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.notion-input--borderless:focus {
+  box-shadow: none;
+}
+
+/* ============================================
+   Notion-style tag / label
+   ============================================ */
+.notion-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 3px;
+  background: var(--bg-highlight);
+  color: var(--text-secondary);
+}
+
+.notion-tag--blue { background: #E9F5FE; color: #086DDD; }
+.notion-tag--green { background: #E6F7EF; color: #0B8A70; }
+.notion-tag--orange { background: #FEF3E2; color: #C36D1E; }
+.notion-tag--red { background: #FDE8E8; color: #C33D31; }
+.notion-tag--purple { background: #F1E8FF; color: #814CC2; }
+.notion-tag--yellow { background: #FFFBDC; color: var(--accent-yellow-text); }
+.notion-tag--brown { background: #F2E6DC; color: #7A4424; }
+.notion-tag--gray { background: #EFF2F5; color: #535351; }
+
+/* ============================================
+   Notion-style divider
+   ============================================ */
+.notion-divider {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 1rem 0;
+}
+
+/* ============================================
+   Notion-style list items
+   ============================================ */
+.notion-list-disc {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.notion-list-disc > li {
+  margin-left: 0.25rem;
+  color: var(--text-primary);
+}
+
+.notion-list-ordered {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+
+.notion-list-ordered > li {
+  margin-left: 0.25rem;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   Utility: shrink wrappers
+   ============================================ */
+.page-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 5rem;
+}
+
+@media (min-width: 640px) {
+  .page-container {
+    padding: 4rem 2.5rem 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding: 5rem 4rem 6rem;
+  }
+}
+
+.page-container--narrow {
+  max-width: 720px;
+}
