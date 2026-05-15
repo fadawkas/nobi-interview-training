@@ -12,7 +12,7 @@ Make sure these are installed on your machine:
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/boyjambre/nobiAI.git
+git clone https://github.com/fadawkas/nobiAI.git
 docker compose up --build
 ```
 
